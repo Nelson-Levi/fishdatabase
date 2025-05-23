@@ -1,0 +1,54 @@
+:root {
+    --uranian-blue: #a9cef4ff;
+    --outer-space: #36494eff;
+    --black: #000000ff;
+    --air-superiority-blue: #7ea0b7ff;
+    --paynes-gray: #597081ff;
+}
+
+header {
+  display: flex;
+  justify-content:space-evenly;
+  background-color: var(--outer-space);
+  color: whitesmoke;
+  margin: 0;
+  padding: 1%;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 10px;
+  color: var(--accent1-color);
+  font-size: 1.2em;
+}
+
+nav link :hover {
+    text-decoration: underline;
+}
+
+body {
+    display: block;
+    background-color: var(--uranian-blue);
+    min-height: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+img {
+  max-width: 50%;
+  text-align: center;
+  display: block;
+  margin: auto;
+  padding: 1%;
+}
+
+button {
+  margin: 5px;
+  padding: 5px;
+}
+
+input {
+  border-radius: 5%;
+  margin: 2px;
+  padding: 5px;
+}
