@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Outlet } from 'react-router-dom';
 import '../styles/styles.css'
+document.title = "Levi's Fish Database";
 
 function Layout() {
     return(
