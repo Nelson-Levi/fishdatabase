@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+## Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Project Title**: Levi's Fish Database
 
-## Available Scripts
+**Project Description**: This program is for my personal use. It allows users to log information about fish they've caught, where, and with what tackle! Data is stored inside of a Firebase Realtime Database. Users may also retrieve fish information from the database, and read about previous catches!
 
-In the project directory, you can run:
+**Project Goals**:
+1. Demonstrate understanding of React, a framework I've never used before.
+2. Understand writing and retrieving data from cloud databases, such as Firebase.
+3. Refresh JavaScript abilities.
 
-### `npm start`
+## Instructions for Build and Use
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Steps to build and/or run the software:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Install Node.js: https://nodejs.org/en/download
+2. Install React in the fishdatabase directory with: npm install.
+3. Start the app with the command: npm start.
 
-### `npm test`
+Instructions for using the software:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Choose between reading or writing fish data to the database.
+2. For writing data, supply all required fields and publish to the database.
+3. For reading data, supply name and date, and retrieve information.
 
-### `npm run build`
+## Development Environment 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To recreate the development environment, you need the following software and/or libraries with the specified versions:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Visual Studio Code 1.99.3
+* React Version 19.1.0
+* Node.js Version v22.15.0
+* npm Version 10.9.2
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Useful Websites to Learn More
 
-### `npm run eject`
+I found these websites useful in developing this software:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* [Learn React](https://react.dev/learn)
+* [W3Schools React Tutorial](https://www.w3schools.com/REACT/DEFAULT.ASP)
+* [Introduction to Node.js](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs)
+* Various Stack Overflow threads
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Future Work
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The following items I plan to fix, improve, and/or add to this project in the future:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* [ ] Login capabilities, especially through Google accounts.
+* [ ] Update site visuals through CSS.
+* [ ] Update the site for mobile users.
