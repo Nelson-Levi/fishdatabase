@@ -1,55 +1,90 @@
 import React, { useState } from "react";
 import { writeFishData } from "../firebase/databaseFunctions";
+import { useNavigate } from "react-router-dom";
 
 function EntryForm() {
-    
-    const [username, setUsername] = useState('');
-    const [date, setDate] = useState('');
-    const [species, setSpecies] = useState('');
-    const [location, setLocation] = useState('');
-    const [tackle, setTackle] = useState('');
-    const [details, setDetails] = useState('');
-    const [submitted, setSubmitted] = useState(false);
 
-    async function handleWrite() {
-        if (!username || !date || !species || !location || !tackle) {
-            alert("Please fill in missing data. ")
-            return;
-        } 
-        try {
-          await writeFishData(username, date, species, location, tackle, details);
-          setSubmitted(true);
-          setUsername('');
-          setDate('');
-          setSpecies('');
-          setLocation('');
-          setTackle('');
-          setDetails('');
-        } catch (error) {
-          console.error("Error writing to Firebase", error);
-        }
+  const navigate = useNavigate();
+
+  const routeChange = (path) =>{ 
+  navigate(path);
   }
 
-  console.log("Entry")
+  function validateInputs({ username, date, species, location, tackle }) {
+    const errors = {}
+
+    if (!username.trim()) errors.username = "Please enter a username.";
+    if (!date.trim()) errors.date = "Please enter a date.";
+    if (!species.trim()) errors.species = "Please enter the fish species.";
+    if (!location.trim()) errors.location = "Please enter the catch location";
+    if (!tackle.trim()) errors.tackle = "Please enter the tackle used!";
+
+    return errors;
+  }
+  
+  const [username, setUsername] = useState('');
+  const [date, setDate] = useState('');
+  const [species, setSpecies] = useState('');
+  const [location, setLocation] = useState('');
+  const [tackle, setTackle] = useState('');
+  const [details, setDetails] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+ async function handleWrite(e) {
+  e.preventDefault();
+
+  const errors = validateInputs({ username, date, species, tackle, location} )
+  if (Object.keys(errors).length > 0) {
+    alert(Object.values(errors).join('/n'));
+    return;
+  }
+
+  try {
+    await writeFishData(username, date, species, location, tackle, details);
+    setSubmitted(true);
+    setUsername('');
+    setDate('');
+    setSpecies('');
+    setLocation('');
+    setTackle('');
+    setDetails('');
+
+    navigate("/submitted", {
+      state: {
+        username,
+        date,
+        species,
+        location,
+        tackle,
+        details
+      }
+    });
+  } catch (error) {
+    console.error("Error writing to Firebase", error);
+  }
+}
+
 
 return (
     <div>
-      {/* {submitted && (
+      {submitted && (
         <div className="writeSuccess">
           <h1>Your submission was successful!</h1>
         </div>
-      )} */}
+      )}
+      <form onSubmit={handleWrite}>
       <input
-        // type="text"
-        // value={username}
-        onChange={(e) => {console.log(e.target.value)}}
-        // placeholder="Enter username"
+        type="text"
+        value={username}
+        onChange={e => setUsername(e.target.value)}
+        placeholder="Enter username"
       />
-      {/* <input
+      <input
         type="text"
         value={date}
         onChange={e => setDate(e.target.value)}
-        placeholder="Enter date"
+        placeholder="Enter date (mm-dd-yy)"
+        pattern="^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])-\d{2}$" 
       />
       <input
         type="text"
@@ -75,8 +110,8 @@ return (
         onChange={e => setDetails(e.target.value)}
         placeholder="Enter additional details"
       />
-      <button onClick={handleWrite}>Save to Firebase</button>
-    */}
+      <button type="submit">Save to Firebase</button>
+      </form>
     </div>
   );
 }

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { readFishData } from "../firebase/databaseFunctions";
+// import { data } from "react-router-dom";
 function ReadForm() {
         
         const [firebaseData, setFirebaseData] = useState(null);
         const [username, setUsername] = useState('');
         const [date, setDate] = useState('');
+        const [noDataExists, setnoDataExists] = useState(false);
         
     function handleRead() {
         if (!username || !date) {
@@ -15,8 +17,9 @@ function ReadForm() {
         .then(snapshot => {
             if (snapshot.exists()) {
                 setFirebaseData(snapshot.val());
+                setnoDataExists(false);
             } else {
-                console.log("No data found.");
+                setnoDataExists(true);
                 return;
             }
         })
@@ -26,6 +29,18 @@ function ReadForm() {
     }
         return (
         <div>
+            <input
+            type="text"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+            placeholder="Enter username"
+        />
+        <input
+            type="text"
+            value={date}
+            onChange={e => setDate(e.target.value)}
+            placeholder="Enter date"
+        />
         <button onClick={handleRead}>Check the Database!</button>
 
         {firebaseData && (
@@ -38,6 +53,13 @@ function ReadForm() {
           <p>Details: {firebaseData.details}</p>
         </div>
         )}
+
+        { noDataExists && (
+            <div style={{ marginTop: '10px' }}>
+                <p>No data found.</p>
+            </div>
+        )}
+        
         </div>
         );
       }

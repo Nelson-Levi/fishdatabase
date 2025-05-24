@@ -5,6 +5,7 @@ function ReadData() {
     <div>
         <h1>Read Fish Database</h1>
         <ReadForm />
+        <img src="read-picture.jpg" alt="Fishing lures"></img>
     </div>
     );
 }
